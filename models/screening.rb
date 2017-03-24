@@ -23,6 +23,21 @@ class Screening
     @id = screening['id'].to_i
   end
 
+  ### CLASS METHODS
+  def self.all()
+    sql = "SELECT * FROM screenings"
+    return Screening.map_screenings(sql)
+  end
 
+  def self.delete_all()
+    sql = "DELETE FROM screenings"
+    SqlRunner.run(sql)
+  end
+
+    ##helper
+  def self.map_screenings(sql)
+    screenings = SqlRunner.run(sql)
+    return result = screenings.map { |screning| Screening.new(screning)}
+  end
 
 end
