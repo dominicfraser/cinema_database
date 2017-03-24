@@ -17,6 +17,22 @@ class Film
     @id = film['id'].to_i
   end
 
+  ### CLASS METHODS
+  def self.all()
+    sql = "SELECT * FROM films"
+    return Film.map_films(sql)
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM films"
+    SqlRunner.run(sql)
+  end
+
+    ##helper
+  def self.map_films(sql)
+    films = SqlRunner.run(sql)
+    return result = films.map { |film| Film.new(film)}
+  end
 
 
 end
