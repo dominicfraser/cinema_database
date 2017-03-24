@@ -18,5 +18,10 @@ customer1 = Customer.new({
   })
 customer1.save
 
+film1 = Film.new({
+  'title' => 'film1'
+  })
+film1.save
+
 binding.pry
 nil
