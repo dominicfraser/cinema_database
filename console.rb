@@ -28,8 +28,15 @@ screening1 = Screening.new({
   'film_id' => film1.id,
   'amount_tickets' => 10
   })
-#screening1.save
+screening1.save
 
+ticket1 = Ticket.new({
+  'film_id' => film1.id,
+  'screening_id' => screening1.id,
+  'customer_id' => customer1.id,
+  'price_id' => adult_price.id
+  })
+ticket1.save
 
 
 
