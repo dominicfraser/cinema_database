@@ -23,6 +23,11 @@ class Price
     SqlRunner.run(sql)
   end
 
+  def update()
+    sql = "UPDATE prices SET (category, price) = ('#{@category}',#{@price}) WHERE id = #{@id}"
+    SqlRunner.run(sql)
+  end
+
 
   ### CLASS METHODS
   def self.all()

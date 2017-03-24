@@ -38,6 +38,7 @@ ticket1 = Ticket.new({
   })
 ticket1.save
 
+adult_price.update
 
 
 binding.pry
