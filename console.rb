@@ -6,3 +6,11 @@ require_relative('models/screening')
 require_relative('models/ticket')
 
 
+adult_price = Price.new({
+  'category' => 'adult',
+  'price' => 10
+  })
+
+
+binding.pry
+nil

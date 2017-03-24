@@ -1,4 +1,4 @@
-require_relative('../db/SqlRunner')
+require_relative('../db/Sql_runner')
 
 class Customer
 
