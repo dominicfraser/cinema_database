@@ -18,6 +18,11 @@ class Price
     @id = price['id'].to_i
   end
 
+  def delete()
+    sql = "DELETE FROM prices WHERE id = #{@id}"
+    SqlRunner.run(sql)
+  end
+
 
   ### CLASS METHODS
   def self.all()
