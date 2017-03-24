@@ -28,6 +28,11 @@ class Screening
     SqlRunner.run(sql)
   end
 
+  def update()
+    sql = "UPDATE screenings (show_date, film_id, amount_tickets) = ('#{@show_date}', #{@film_id}, #{@amount_tickets}) WHERE id = #{@id}"
+    SqlRunner.run(sql)
+  end
+
   ### CLASS METHODS
   def self.all()
     sql = "SELECT * FROM screenings"
