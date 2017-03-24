@@ -24,7 +24,7 @@ class Customer
   end
 
   def update()
-    sql = "UPDATE customers SET (name, category_id) = ('#{name}', #{category_id}) WHERE id = #{id}"
+    sql = "UPDATE customers SET (name, category_id) = ('#{@name}', #{@category_id}) WHERE id = #{@id}"
     SqlRunner.run(sql)
   end
 
