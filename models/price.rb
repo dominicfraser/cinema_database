@@ -10,6 +10,8 @@ class Price
     @price = price_hash['price'].to_i
   end
 
+  ###CRUD INSTANCE
+
   def save()
     sql = "INSERT INTO prices (category, price) VALUES ('#{@category}', #{@price}) RETURNING *"
     price = SqlRunner.run(sql).first

@@ -12,6 +12,8 @@ class Ticket
     @price_id = ticket_hash['price_id'].to_i
   end
 
+  ###CRUD INSTANCE
+
   def save()
     sql = "INSERT INTO tickets (film_id, screening_id, customer_id, price_id) VALUES (#{@film_id},#{@screening_id},#{@customer_id},#{@price_id}) RETURNING * "
     ticket = SqlRunner.run(sql).first

@@ -10,6 +10,8 @@ class Customer
     @category_id = customer_hash['category_id'].to_i
   end
 
+  ###CRUD INSTANCE
+
   def save()
     sql = "INSERT INTO customers (name, category_id) VALUES ('#{@name}', #{@category_id}) RETURNING *"
     customer = SqlRunner.run(sql).first

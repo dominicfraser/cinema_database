@@ -9,6 +9,8 @@ class Film
     @title = film_hash['title']
   end
 
+  ###CRUD INSTANCE
+
   def save()
     sql = "INSERT INTO films (title) VALUES ('#{@title}') RETURNING *"
     film = SqlRunner.run(sql).first

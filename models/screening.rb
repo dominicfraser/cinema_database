@@ -11,6 +11,8 @@ class Screening
     @amount_tickets = screening_hash['amount_tickets'].to_i
   end
 
+  ###CRUD INSTANCE
+
   def save()
     sql = "INSERT INTO screenings
      (show_date, film_id, amount_tickets)
