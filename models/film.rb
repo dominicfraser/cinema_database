@@ -17,6 +17,11 @@ class Film
     @id = film['id'].to_i
   end
 
+  def delete()
+    sql = "DELETE FROM films WHERE id = #{@id}"
+    SqlRunner.run(sql)
+  end
+
   ### CLASS METHODS
   def self.all()
     sql = "SELECT * FROM films"
