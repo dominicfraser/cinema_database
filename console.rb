@@ -10,7 +10,13 @@ adult_price = Price.new({
   'category' => 'adult',
   'price' => 10
   })
+adult_price.save
 
+customer1 = Customer.new({
+  'name' => 'customer1',
+  'category_id' => adult_price.id
+  })
+customer1.save
 
 binding.pry
 nil

@@ -11,8 +11,8 @@ class Price
   end
 
   def save()
-    sql = "INSERT INTO prices (category, price) VALUES ('#{@category}', #{@price} RETURNING *"
-    customer = SqlRunner.run(sql)
+    sql = "INSERT INTO prices (category, price) VALUES ('#{@category}', #{@price}) RETURNING *"
+    price = SqlRunner.run(sql).first
     @id = price['id'].to_i
   end
 
