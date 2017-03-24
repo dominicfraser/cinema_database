@@ -24,7 +24,8 @@ CREATE TABLE customers (
 
 CREATE TABLE screenings (
   id SERIAL4 PRIMARY KEY,
-  show_time DATE,         --year, month, and day values
+  show_date DATE,
+  film_id INT4 REFERENCES films(id) ON DELETE CASCADE,
   amount_tickets INT4 CHECK (amount_tickets > 0)
 );
 

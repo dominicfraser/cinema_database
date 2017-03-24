@@ -23,5 +23,15 @@ film1 = Film.new({
   })
 film1.save
 
+screening1 = Screening.new({
+  'show_date' => '2017-07-14',
+  'film_id' => film1.id,
+  'amount_tickets' => 10
+  })
+#screening1.save
+
+
+
+
 binding.pry
 nil
