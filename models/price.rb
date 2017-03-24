@@ -10,12 +10,32 @@ class Price
     @price = price_hash['price'].to_i
   end
 
-  ###CRUD INSTANCE
+  ###CRUD INSTANCE METHODS
 
   def save()
     sql = "INSERT INTO prices (category, price) VALUES ('#{@category}', #{@price}) RETURNING *"
     price = SqlRunner.run(sql).first
     @id = price['id'].to_i
   end
+
+
+  ### CLASS METHODS
+  def self.all()
+    sql = "SELECT * FROM prices"
+    return Price.map_prices(sql)
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM prices"
+    SqlRunner.run(sql)
+  end
+
+    ##helper
+  def self.map_prices(sql)
+    prices = SqlRunner.run(sql)
+    return result = prices.map { |price| Price.new(price)}
+  end
+
+
 
 end
