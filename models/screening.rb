@@ -37,7 +37,7 @@ class Screening
     ##helper
   def self.map_screenings(sql)
     screenings = SqlRunner.run(sql)
-    return result = screenings.map { |screning| Screening.new(screning)}
+    return result = screenings.map { |screening| Screening.new(screening)}
   end
 
 end

@@ -20,7 +20,22 @@ class Ticket
     @id = ticket['id'].to_i
   end
 
+  ### CLASS METHODS
+  def self.all()
+    sql = "SELECT * FROM tickets"
+    return Ticket.map_tickets(sql)
+  end
 
+  def self.delete_all()
+    sql = "DELETE FROM tickets"
+    SqlRunner.run(sql)
+  end
+
+    ##helper
+  def self.map_tickets(sql)
+    tickets = SqlRunner.run(sql)
+    return result = tickets.map { |ticket| Ticket.new(ticket)}
+  end
 
 
 
