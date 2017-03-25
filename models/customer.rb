@@ -3,6 +3,7 @@ require_relative('../db/Sql_runner')
 class Customer
 
   attr_reader :id
+  attr_accessor :cash
 
   def initialize(customer_hash)
     @id = customer_hash['id'].to_i

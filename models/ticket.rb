@@ -14,11 +14,18 @@ class Ticket
 
   ### INSTANCE METHODS
 
-  
+  def create_and_buy_ticket(customer)
+    self.save()
+    sql = "SELECT prices.* FROM prices
+      INNER JOIN customers ON prices.id=customers.category_id
+      WHERE customers.id = #{@customer_id} "
+    price = SqlRunner.run(sql).first['price'].to_i
+    customer.cash -= price
+  end
 
   ###CRUD INSTANCE
 
-  def save()
+  def save() ##only to be used to test as replaced by create_and_buy method
     sql = "INSERT INTO tickets (film_id, screening_id, customer_id, price_id) VALUES (#{@film_id},#{@screening_id},#{@customer_id},#{@price_id}) RETURNING * "
     ticket = SqlRunner.run(sql).first
     @id = ticket['id'].to_i

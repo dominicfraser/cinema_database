@@ -101,7 +101,7 @@ ticket3.save
 ticket4.save
 ticket5.save
 ticket6.save
-ticket7.save
+ticket7.create_and_buy_ticket(customer1)
 
 binding.pry
 film1.customers('2017-07-14')
