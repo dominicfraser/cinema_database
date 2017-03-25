@@ -10,6 +10,17 @@ class Customer
     @category_id = customer_hash['category_id'].to_i
   end
 
+  ### INSTANCE METHODS
+  def films
+    sql = "SELECT films.* FROM films
+    INNER JOIN tickets 
+    ON tickets.film_id=films.id 
+    WHERE tickets.customer_id = #{@id}"
+    films_array = SqlRunner.run(sql).uniq
+    film_objects = films_array.map{|film| Film.new(film)}
+    return film_objects
+  end
+
   ###CRUD INSTANCE
 
   def save()
