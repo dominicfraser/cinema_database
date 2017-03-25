@@ -9,6 +9,23 @@ class Film
     @title = film_hash['title']
   end
 
+  ### INSTANCE METHODS
+  
+  def most_popular_date()
+    sql = 
+
+    SELECT s.show_date, t.s_id,t.count 
+    FROM screenings s
+    INNER JOIN (
+    SELECT COUNT(id),screening_id AS s_id
+    FROM tickets WHERE tickets.film_id = 1     
+    GROUP BY screening_id) t
+    ON t.s_id=s.id
+    ORDER BY COUNT DESC;
+
+    
+  end
+
   ###CRUD INSTANCE
 
   def save()
