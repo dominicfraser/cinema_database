@@ -101,8 +101,8 @@ ticket5.save
 ticket6.save
 ticket7.save
 
-
-film1.most_popular_date
-
 binding.pry
+film1.customers('2017-07-14')
+
+
 nil

@@ -11,6 +11,18 @@ class Film
   end
 
   ### INSTANCE METHODS
+
+  def customers(date)
+    sql = "SELECT customers.* FROM customers 
+      INNER JOIN tickets ON customers.id=tickets.customer_id
+      INNER JOIN screenings ON screenings.id=tickets.screening_id
+      WHERE tickets.film_id = #{@id} AND screenings.show_date = '#{date}' "
+    customers_array = SqlRunner.run(sql)
+    return customers_array.map { |customer| Customer.new(customer)}
+  end
+
+  # Show which films a customer has booked to see, and 
+  #see which customers are coming to see one film.
   
   def most_popular_date()
     sql = "SELECT s.show_date, t.s_id,t.count 

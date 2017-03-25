@@ -11,7 +11,7 @@ class Customer
   end
 
   ### INSTANCE METHODS
-  def films
+  def films #all films seen NOT all tickets for certain film
     sql = "SELECT films.* FROM films
     INNER JOIN tickets 
     ON tickets.film_id=films.id 
