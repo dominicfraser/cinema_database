@@ -12,18 +12,18 @@ class Film
   ### INSTANCE METHODS
   
   def most_popular_date()
-    sql = 
-
-    SELECT s.show_date, t.s_id,t.count 
+    sql = "SELECT s.show_date, t.s_id,t.count 
     FROM screenings s
     INNER JOIN (
     SELECT COUNT(id),screening_id AS s_id
-    FROM tickets WHERE tickets.film_id = 1     
+    FROM tickets 
+    WHERE tickets.film_id = #{@id}     
     GROUP BY screening_id) t
     ON t.s_id=s.id
-    ORDER BY COUNT DESC;
-
-    
+    ORDER BY COUNT DESC"
+    date_sid_count = SqlRunner.run(sql).first
+    date_string = date_sid_count['show_date']
+    return date_string
   end
 
   ###CRUD INSTANCE
