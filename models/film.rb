@@ -1,3 +1,4 @@
+require('pry')
 require_relative('../db/Sql_runner')
 
 class Film
@@ -21,9 +22,14 @@ class Film
     GROUP BY screening_id) t
     ON t.s_id=s.id
     ORDER BY COUNT DESC"
-    date_sid_count = SqlRunner.run(sql).first
-    date_string = date_sid_count['show_date']
-    return date_string
+    
+    date_sid_count = SqlRunner.run(sql)
+    if date_sid_count[0]['count'].to_i != date_sid_count[1]['count'].to_i
+      date_string = date_sid_count[0]['show_date']
+      return date_string
+    else
+      return "Multiple Popular Dates"
+    end
   end
 
   ###CRUD INSTANCE
