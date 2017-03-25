@@ -23,6 +23,13 @@ class Customer
     return film_objects
   end
 
+  def how_many_tickets
+    sql = "SELECT * FROM tickets
+      WHERE customer_id = #{@id} "
+    tickets = SqlRunner.run(sql)
+    amount_tickets = tickets.map{|ticket| Ticket.new(ticket)}.length
+  end
+
   ###CRUD INSTANCE
 
   def save()
