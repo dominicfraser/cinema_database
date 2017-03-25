@@ -8,6 +8,7 @@ class Customer
     @id = customer_hash['id'].to_i
     @name = customer_hash['name']
     @category_id = customer_hash['category_id'].to_i
+    @cash = customer_hash['cash'].to_i
   end
 
   ### INSTANCE METHODS
@@ -24,7 +25,7 @@ class Customer
   ###CRUD INSTANCE
 
   def save()
-    sql = "INSERT INTO customers (name, category_id) VALUES ('#{@name}', #{@category_id}) RETURNING *"
+    sql = "INSERT INTO customers (name, category_id, cash) VALUES ('#{@name}', #{@category_id},#{@cash}) RETURNING *"
     customer = SqlRunner.run(sql).first
     @id = customer['id'].to_i
   end
@@ -35,7 +36,7 @@ class Customer
   end
 
   def update()
-    sql = "UPDATE customers SET (name, category_id) = ('#{@name}', #{@category_id}) WHERE id = #{@id}"
+    sql = "UPDATE customers SET (name, category_id, cash) = ('#{@name}', #{@category_id},#{@cash}) WHERE id = #{@id}"
     SqlRunner.run(sql)
   end
 

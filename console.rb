@@ -14,11 +14,13 @@ adult_price.save
 
 customer1 = Customer.new({
   'name' => 'customer1',
-  'category_id' => adult_price.id
+  'category_id' => adult_price.id,
+  'cash' => 50
   })
 customer2 = Customer.new({
   'name' => 'customer2',
-  'category_id' => adult_price.id
+  'category_id' => adult_price.id,
+  'cash' => 50
   })
 customer1.save
 customer2.save

@@ -19,7 +19,8 @@ CREATE TABLE films (
 CREATE TABLE customers (
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  category_id INT4 REFERENCES prices(id) ON DELETE CASCADE
+  category_id INT4 REFERENCES prices(id) ON DELETE CASCADE,
+  cash INT4 
 );
 
 CREATE TABLE screenings (

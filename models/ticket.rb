@@ -12,6 +12,10 @@ class Ticket
     @price_id = ticket_hash['price_id'].to_i
   end
 
+  ### INSTANCE METHODS
+
+  
+
   ###CRUD INSTANCE
 
   def save()
