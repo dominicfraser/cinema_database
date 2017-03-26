@@ -37,7 +37,7 @@ film2.save
 screening1 = Screening.new({
   'show_date' => '2017-07-14',
   'film_id' => film1.id,
-  'amount_tickets' => 10
+  'amount_tickets' => 1
   })
 screening2 = Screening.new({
   'show_date' => '2017-07-15',
@@ -65,46 +65,46 @@ ticket2 = Ticket.new({
   'customer_id' => customer2.id,
   'price_id' => adult_price.id
   })
-ticket3= Ticket.new({
-  'film_id' => film1.id,
-  'screening_id' => screening2.id,
-  'customer_id' => customer1.id,
-  'price_id' => adult_price.id
-  })
-ticket4 = Ticket.new({
-  'film_id' => film1.id,
-  'screening_id' => screening3.id,
-  'customer_id' => customer1.id,
-  'price_id' => adult_price.id
-  })
-ticket5 = Ticket.new({
-  'film_id' => film2.id,
-  'screening_id' => screening3.id,
-  'customer_id' => customer1.id,
-  'price_id' => adult_price.id
-  })
-ticket6 = Ticket.new({
-  'film_id' => film1.id,
-  'screening_id' => screening3.id,
-  'customer_id' => customer2.id,
-  'price_id' => adult_price.id
-  })
-ticket7 = Ticket.new({
-  'film_id' => film1.id,
-  'screening_id' => screening3.id,
-  'customer_id' => customer2.id,
-  'price_id' => adult_price.id
-  })
+# ticket3= Ticket.new({
+#   'film_id' => film1.id,
+#   'screening_id' => screening2.id,
+#   'customer_id' => customer1.id,
+#   'price_id' => adult_price.id
+#   })
+# ticket4 = Ticket.new({
+#   'film_id' => film1.id,
+#   'screening_id' => screening3.id,
+#   'customer_id' => customer1.id,
+#   'price_id' => adult_price.id
+#   })
+# ticket5 = Ticket.new({
+#   'film_id' => film2.id,
+#   'screening_id' => screening3.id,
+#   'customer_id' => customer1.id,
+#   'price_id' => adult_price.id
+#   })
+# ticket6 = Ticket.new({
+#   'film_id' => film1.id,
+#   'screening_id' => screening3.id,
+#   'customer_id' => customer2.id,
+#   'price_id' => adult_price.id
+#   })
+# ticket7 = Ticket.new({
+#   'film_id' => film1.id,
+#   'screening_id' => screening3.id,
+#   'customer_id' => customer2.id,
+#   'price_id' => adult_price.id
+  # })
 ticket1.save
 ticket2.save
-ticket3.save
-ticket4.save
-ticket5.save
-ticket6.save
-ticket7.create_and_buy_ticket(customer1)
+# ticket3.save
+# ticket4.save
+# ticket5.save
+# ticket6.save
+# ticket7.create_and_buy_ticket(customer1)
 
 binding.pry
-film1.customers('2017-07-14')
+# film1.customers('2017-07-14')
 
 
 nil

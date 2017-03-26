@@ -11,7 +11,6 @@ class Film
   end
 
   ### INSTANCE METHODS
-  # Check how many customers are going to watch a certain film
   def amount_customers(date)
     return self.customers(date).length
   end

@@ -38,13 +38,44 @@ CREATE TABLE tickets (
   price_id INT4 REFERENCES prices(id) ON DELETE CASCADE
 );
 
--- SELECT s.show_date, t.s_id,t.count 
--- FROM screenings s
--- INNER JOIN (
--- SELECT COUNT(id),screening_id AS s_id
--- FROM tickets WHERE tickets.film_id = 1     
--- GROUP BY screening_id) t
--- ON t.s_id=s.id
--- ORDER BY COUNT DESC;
+CREATE FUNCTION amount_tic()
+RETURNS INT4
+AS 
+BEGIN 
+  -- SELECT amount_tickets
+  -- FROM screenings
+  -- WHERE id
+  RETURN (SELECT 1)
+END;
 
+ALTER TABLE tickets 
+ADD CONSTRAINT amount_tickets_available
+CHECK (3 < amount_tic());
+
+
+-- tickets_existing(screening_id) < amount_tic
+-- CREATE FUNCTION get_bal(acc_no IN NUMBER) 
+--    RETURN NUMBER 
+--    IS acc_bal NUMBER(11,2);
+--    BEGIN 
+--       SELECT order_total 
+--       INTO acc_bal 
+--       FROM orders 
+--       WHERE customer_id = acc_no; 
+--       RETURN(acc_bal); 
+--     END;
+-- -----------
+--     create function myudf(@id int)
+--     returns bit
+--     as
+--     begin
+--         return coalesce((select top 1 1 from Table2 where ColY = @id),0)
+--     end
+-- -------------
+
+--     create function dbo.CheckFunction()
+--     returns int
+--     as begin
+--         return (select 1)
+--     end
 
