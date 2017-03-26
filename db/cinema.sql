@@ -38,19 +38,30 @@ CREATE TABLE tickets (
   price_id INT4 REFERENCES prices(id) ON DELETE CASCADE
 );
 
-CREATE FUNCTION amount_tic()
+CREATE FUNCTION amount_tic(screening_id_no INT4)
 RETURNS INT4
 AS 
 BEGIN 
   -- SELECT amount_tickets
   -- FROM screenings
-  -- WHERE id
+  -- WHERE id = screening_id_no
+  -- RETURN (amount_tickets)
   RETURN (SELECT 1)
+END;
+
+CREATE FUNCTION tickets_existing(screening_id_no INT4)
+RETURNS INT4 
+AS
+BEGIN
+  -- SELECT COUNT(id) 
+  -- FROM tickets 
+  -- WHERE screening_id = screening_id_no
+  RETURN (SELECT 3)
 END;
 
 ALTER TABLE tickets 
 ADD CONSTRAINT amount_tickets_available
-CHECK (3 < amount_tic());
+CHECK (tickets_existing(1) < amount_tic(1));
 
 
 -- tickets_existing(screening_id) < amount_tic
